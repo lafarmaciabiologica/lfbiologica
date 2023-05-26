@@ -2,3 +2,7 @@
 	path = lfbiologica
 	url = git@git.vauxoo.com:vauxoo/lfbiologica.git
 	branch = 16.0
+[submodule "stock-psycho-account"]
+	path = stock-psycho-account
+	url = git@git.vauxoo.com:vauxoo/stock-psycho-account.git
+	branch = 16.0
