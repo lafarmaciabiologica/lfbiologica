@@ -1,0 +1,4 @@
+[submodule "lfbiologica"]
+	path = lfbiologica
+	url = git@git.vauxoo.com:vauxoo/lfbiologica.git
+	branch = 17.0
