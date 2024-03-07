@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo noupdate="1">
+
+    <record id="data_res_partner_invoice_address_lfbiologica" model="res.partner">
+        <field name="type">invoice</field>
+        <field name="parent_id" ref="base.main_partner" />
+        <field name="street">Av 4 A Oeste # 5 Oeste - 87</field>
+        <field name="city">Cali</field>
+        <field name="zip">760045</field>
+        <field name="phone">8922392</field>
+        <field name="email">contador@lfbiologica.com</field>
+        <field name="state_id" ref="base.state_co_24" />
+        <field name="country_id" ref="base.co" />
+    </record>
+
+</odoo>

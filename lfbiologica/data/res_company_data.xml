@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo noupdate="1">
+
+    <record id="base.main_company" model="res.company">
+        <field name="name">La Farmacia Biológica S.A.S.</field>
+        <field name="street">Av 4 A Oeste # 5 Oeste - 87</field>
+        <field name="zip">760045</field>
+        <field name="city">Cali</field>
+        <field name="phone">8922392</field>
+        <field name="vat">900578842-0</field>
+        <field name="email">contador@lfbiologica.com</field>
+        <field name="website">https://www.lfbiologica.com/</field>
+        <field name="state_id" ref="base.state_co_24" />
+        <field name="country_id" ref="base.co" />
+        <field name="logo" type="base64" file="lfbiologica/static/img/logo.png" />
+    </record>
+
+</odoo>
