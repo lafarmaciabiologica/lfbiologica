@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+  <data>
+
+    <record model='ir.ui.view' id='view_l10n_latam_identification_type_person_tree'>
+      <field name='name'>view.l10n_latam.identification_type.person.tree</field>
+      <field name='model'>l10n_latam.identification.type</field>
+      <field name='inherit_id' ref='l10n_latam_base.view_l10n_latam_identification_type_tree'/>
+      <field name='arch' type='xml'>
+        <xpath expr="//field[@name='name']" position="after">
+          <field name="l10n_co_document_code"/>
+          <field name="is_vat" widget="boolean_toggle"/>
+          <field name="is_required" widget="boolean_toggle"/>
+          <field name="dv_calculated" widget="boolean_toggle"/>
+          <field name="is_digit" widget="boolean_toggle"/>
+          <field name="by_default" widget="boolean_toggle"/>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+
+</odoo>
