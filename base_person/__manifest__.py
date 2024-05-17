@@ -6,7 +6,7 @@
 ##############################################################################
 {
     "name": "Natural Person",
-    "version": "15.0",
+    "version": "17.0",
     "description": """
 Add Natural Person to Partner Object and RUT/NIT to ref.
     """,
@@ -32,6 +32,6 @@ Add Natural Person to Partner Object and RUT/NIT to ref.
     "active": False,
     "installable": True,
     "certificate" : "",
-    'license': "AGPL-3",
+    'license': "Other proprietary",
 }
 

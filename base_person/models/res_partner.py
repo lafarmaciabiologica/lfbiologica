@@ -59,13 +59,10 @@ class ResPartner(models.Model):
         return super(ResPartner, self).create(vals_list)
 
     def write(self, vals):
-        print('vals ++++++++++++++++++++++++++++++++++++',vals)
         l10n_latam_identification_type_id = vals.get('l10n_latam_identification_type_id', False)
         ref = vals.get('ref', False)
-        print('ref*******************************',ref)
         #record['ref'] = vat
         dv = vals.get('dv', False)
-        print('dv -------------------------------',dv)
         parent_id = vals.get('parent_id', False)
 
       
@@ -87,7 +84,6 @@ class ResPartner(models.Model):
                raise ValidationError(_('El tipo de identificación %s requiere que ingrese el número', l10n_latam_identification_type.name))
 
             dv_calculado = self.generate_dv_co(ref)
-            print('dev_calculado ++++++++++++++++++++',dv_calculado)
             if l10n_latam_identification_type.dv_calculated:
                res_dv = dv_calculado
             else:
@@ -99,7 +95,7 @@ class ResPartner(models.Model):
 
                if not l10n_latam_identification_type.dv_calculated and dv and dv != res_dv:
                   raise ValidationError(_('El número de identificación ingresado no corresponde con el dígito de verificación'))
-            print('res_dv ----------------------',res_dv)
+
             return res_dv
 
 
@@ -115,7 +111,7 @@ class ResPartner(models.Model):
                raise ValidationError(_('El tipo de identificación %s requiere que ingrese el número', self.l10n_latam_identification_type_id.name))
 
             dv = self.generate_dv_co(self.ref)
-            print('dev_calculado 2 ++++++++++++++++++++',dv,'self.dv',self.dv,'self.ref',self.ref)
+
             if self.l10n_latam_identification_type_id.dv_calculated:
                self.dv = dv
             #else:
