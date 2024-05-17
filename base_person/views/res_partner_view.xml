@@ -71,7 +71,7 @@
         <xpath expr="//field[@name='lang']" position="after">                      
           <field name="comercial_name"/>
         </xpath>
-        <xpath expr="//div[@class='o_address_format']" position="attributes">
+        <xpath expr="//div[hasclass('o_address_format')]" position="attributes">
           <attribute name="string">Dirección</attribute>
         </xpath>
         <xpath expr="//span[@name='address_name']" position="after">
