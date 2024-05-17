@@ -15,7 +15,6 @@ Add Natural Person to Partner Object and RUT/NIT to ref.
     "category": "Tools",
     "depends": [
             'base',
-            #'l10n_latam_base',
             'l10n_co',
 			],
 	"data":[
