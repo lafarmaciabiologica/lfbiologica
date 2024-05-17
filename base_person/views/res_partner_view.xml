@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+  <data>
+	  <record model='ir.ui.view' id='res_partner_form_view_inherit_person'>
+  	  <field name='name'>res_partner_form_view_inherit_person</field>
+	    <field name='model'>res.partner</field>
+	    <field name='inherit_id' ref="base.view_partner_form"/>
+  	  <field name='arch' type='xml'>
+        <xpath expr="//field[@id='company']" position="attributes">
+          <attribute name="invisible">True</attribute>
+        </xpath>
+        <xpath expr="//field[@id='individual']" position="attributes">
+          <attribute name="invisible">True</attribute>
+        </xpath>
+        <field name="name" position="replace">
+          <h3>
+            <h3>
+              <field name="name" default_focus="1" placeholder="Razón social" invisible="is_company == False" required="is_company == True"/>
+              <field name="first_name" placeholder="Nombre" style="width: 50%%" invisible="is_company == True" required="is_company == False"/>
+              <field name="middle_name" placeholder="Segundo Nombre" invisible="is_company == True" style="width: 50%%"/>
+            </h3>
+            <h3>                   
+	            <field name="surname" placeholder="Apellido" invisible="is_company == True" required="is_company == False" style="width: 50%%"/>
+              <field name="mother_name" placeholder="Segundo Apellido" invisible="is_company == True" style="width: 50%%"/>
+            </h3>
+		      </h3>
+        </field>
+	    </field>
+	  </record>
+
+		
+  	<record model="ir.ui.view" id="view_partner_ident_type_form_inherit">
+	    <field name="name">view_partner_ident_type_form_inherit</field>
+	    <field name="model">res.partner</field>
+  	  <field name="inherit_id" ref="l10n_latam_base.view_partner_latam_form"/>
+	    <field name="arch" type="xml">
+        <xpath expr="//label[@for='l10n_latam_identification_type_id']" position="attributes">
+          <attribute name="invisible">True</attribute>
+        </xpath>
+        <xpath expr="//field[@name='l10n_latam_identification_type_id']" position="attributes">
+          <attribute name="invisible">True</attribute>
+        </xpath>
+        <xpath expr="//field[@name='vat']" position="attributes">
+          <attribute name="invisible">True</attribute>
+        </xpath>
+      </field>		
+	  </record>
+
+
+    <record model="ir.ui.view" id="view_partner_extra_form_inherit">
+  	  <field name="name">view_partner_extra_form_inherit</field>
+	    <field name="model">res.partner</field>
+	    <field name="inherit_id" ref="base.view_partner_form"/>
+  	  <field name="arch" type="xml">
+        <xpath expr="//field[@name='parent_id']" position="attributes">
+          <attribute name="invisible">True</attribute>
+        </xpath>
+        <xpath expr="//span[@name='address_name']" position="attributes">
+          <attribute name="invisible">True</attribute>
+        </xpath>
+        <xpath expr="//field[@name='ref']" position="attributes">
+          <attribute name="invisible">True</attribute>
+        </xpath>
+        <xpath expr="//field[@name='vat']" position="attributes">
+          <attribute name="invisible">True</attribute>
+        </xpath>
+        <xpath expr="//field[@name='country_id']" position="attributes">					
+          <attribute name="options">{'no_create': True}</attribute>
+        </xpath>
+        <xpath expr="//field[@name='lang']" position="after">                      
+          <field name="comercial_name"/>
+        </xpath>
+        <xpath expr="//div[@class='o_address_format']" position="attributes">
+          <attribute name="string">Dirección</attribute>
+        </xpath>
+        <xpath expr="//span[@name='address_name']" position="after">
+          <group>
+          <field name="is_nit" invisible="1"/>
+            <field name="l10n_latam_identification_type_id" options="{'no_open': True, 'no_create': True}" placeholder="Tipo" string="Tipo" domain="country_id and ['|', ('country_id', '=', False), ('country_id', '=', country_id)] or []" required="True" readonly="parent_id"/>
+            <field name="ref" placeholder="Number" string="Numero" class="oe_inline" readonly="parent_id" style="width: 80%"/>
+            <!-- <field name="dv" placeholder="D.V" invisible="is_company == False" required="is_company == True" style="width: 15%"/> -->
+            <field name="dv" placeholder="D.V" invisible="is_nit == False" required="is_nit == True"/>
+          </group>  
+        </xpath>
+          
+       </field>		
+	  </record> 
+
+    <record id="res_partner_kanban_view" model="ir.ui.view">
+      <field name="name">res.partner.kanban.inherit</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.res_partner_kanban_view"/>
+      <field name="arch" type="xml">
+        <xpath expr="//div[hasclass('oe_kanban_partner_categories')]" position="inside">
+          <li t-if="record.ref.raw_value">
+            <field name="ref"/><t t-if="record.dv.raw_value">-<field name="dv"/></t>
+          </li>  
+        </xpath>
+      </field>
+    </record>
+
+  </data>  
+</odoo>
