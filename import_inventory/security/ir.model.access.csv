@@ -1,4 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_res_groups,res_group_acess_rights,base.model_res_groups,import_inventory.group_import_inventory_access,1,1,1,1
-access_generate_inv,generate_inventory_access_rule,model_generate_inv,import_inventory.group_import_inventory_access,1,1,1,1
-access_gen_inv,gen.inv,model_gen_inv,import_inventory.group_import_inventory_access,1,1,1,1
